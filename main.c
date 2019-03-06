@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 18:45:21 by Valentin          #+#    #+#             */
-/*   Updated: 2019/03/04 02:14:14 by Valentin         ###   ########.fr       */
+/*   Updated: 2019/03/06 14:04:52 by Valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,26 @@ int		main(void)
 	char	strlen_s[] = "eh oui salut les potes";
 	printf("mine:\t\t->%zu<-\n", ft_strlen(strlen_s));
 	printf("expected:\t->%zu<-\n", strlen(strlen_s));
+
+	printf("\n### strdup tests ###\n");
+	char	strdup_src[] = "bonjour les amis";
+	printf("mine:\t\t->%s<-\n", ft_strdup(strdup_src));
+	printf("expected:\t->%s<-\n", strdup(strdup_src));
+
+	printf("\n### strcpy tests ###\n");
+	char	strcpy_src[] = "bonjour les amis";
+	char	strcpy_dst1[] = "eh oui salut les potes";
+	char	strcpy_dst2[] = "eh oui salut les potes";
+	printf("mine:\t\t->%s<-\n", ft_strcpy(strcpy_dst1, strcpy_src));
+	printf("expected:\t->%s<-\n", strcpy(strcpy_dst2, strcpy_src));
+
+	printf("\n### strncpy tests ###\n");
+	char	strncpy_src[] = "bonjour les amis";
+	char	strncpy_dst1[] = "eh oui salut les potes";
+	char	strncpy_dst2[] = "eh oui salut les potes";
+	size_t	strncpy_n = 7;
+	printf("mine:\t\t->%s<-\n", ft_strncpy(strncpy_dst1, strncpy_src, strncpy_n));
+	printf("expected:\t->%s<-\n", strncpy(strncpy_dst2, strncpy_src, strncpy_n));
+
 	return 0;
 }
