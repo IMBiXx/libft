@@ -6,7 +6,7 @@
 #    By: Valentin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/03 16:01:26 by Valentin          #+#    #+#              #
-#    Updated: 2019/03/06 16:12:04 by Valentin         ###   ########.fr        #
+#    Updated: 2019/03/06 17:55:35 by Valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,9 @@ SRCS = ft_memset.c \
 		ft_strchr.c \
 		ft_strrchr.c \
 		ft_strstr.c \
-		ft_strnstr.c
-
+		ft_strnstr.c \
+		ft_strcmp.c \
+		ft_strncmp.c
 
 OBJ = $(SRCS:.c=.o)
 

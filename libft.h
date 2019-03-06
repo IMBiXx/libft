@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 16:26:24 by Valentin          #+#    #+#             */
-/*   Updated: 2019/03/06 16:11:56 by Valentin         ###   ########.fr       */
+/*   Updated: 2019/03/06 17:55:22 by Valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strstr(const char *haystack, const char *needle);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+int		ft_strcmp(const char *s1, const char *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 typedef struct		s_list
 {

@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 18:45:21 by Valentin          #+#    #+#             */
-/*   Updated: 2019/03/06 16:30:07 by Valentin         ###   ########.fr       */
+/*   Updated: 2019/03/06 17:59:16 by Valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,5 +153,35 @@ int		main(void)
 	printf("expected:\t->%s<-\n", strnstr(strnstr_str, strnstr_to_find, strnstr_len));
 	printf("expected:\t->%s<-\n", strnstr(strnstr_str, strnstr_to_find, strnstr_len + 1));
 
+	printf("\n### strcmp tests ###\n");
+	char	strcmp_s1[] = "bonjour les amis";
+	char	strcmp_s2[] = "bonjour les potes";
+	printf("mine:\t\t->%d<-\n", ft_strcmp(strcmp_s1, strcmp_s2));
+	printf("expected:\t->%d<-\n", strcmp(strcmp_s1, strcmp_s2));
+	char	strcmp_s3[] = "";
+	char	strcmp_s4[] = "bonjour les potes";
+	printf("mine:\t\t->%d<-\n", ft_strcmp(strcmp_s3, strcmp_s4));
+	printf("expected:\t->%d<-\n", strcmp(strcmp_s3, strcmp_s4));
+	char	strcmp_s5[] = "";
+	char	strcmp_s6[] = "";
+	printf("mine:\t\t->%d<-\n", ft_strcmp(strcmp_s5, strcmp_s6));
+	printf("expected:\t->%d<-\n", strcmp(strcmp_s5, strcmp_s6));
+
+	printf("\n### strncmp tests ###\n");
+	char	strncmp_s1[] = "bonjour les amis";
+	char	strncmp_s2[] = "bonjour les potes";
+	size_t	strncmp_n = 14;
+	printf("mine:\t\t->%d<-\n", ft_strncmp(strncmp_s1, strncmp_s2, strncmp_n));
+	printf("expected:\t->%d<-\n", strncmp(strncmp_s1, strncmp_s2, strncmp_n));
+	char	strncmp_s3[] = "bonjour les amis";
+	char	strncmp_s4[] = "bonjour les potes";
+	size_t	strncmp_n2 = 7;
+	printf("mine:\t\t->%d<-\n", ft_strncmp(strncmp_s3, strncmp_s4, strncmp_n2));
+	printf("expected:\t->%d<-\n", strncmp(strncmp_s3, strncmp_s4, strncmp_n2));
+	char	strncmp_s5[] = "bonjour les amis";
+	char	strncmp_s6[] = "bonjour les potes";
+	size_t	strncmp_n3 = 0;
+	printf("mine:\t\t->%d<-\n", ft_strncmp(strncmp_s5, strncmp_s6, strncmp_n3));
+	printf("expected:\t->%d<-\n", strncmp(strncmp_s5, strncmp_s6, strncmp_n3));
 	return 0;
 }
