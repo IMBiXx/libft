@@ -6,12 +6,13 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 18:45:21 by Valentin          #+#    #+#             */
-/*   Updated: 2019/03/06 17:59:16 by Valentin         ###   ########.fr       */
+/*   Updated: 2019/03/06 21:00:10 by Valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+#include <ctype.h>
 
 int		main(void)
 {
@@ -183,5 +184,85 @@ int		main(void)
 	size_t	strncmp_n3 = 0;
 	printf("mine:\t\t->%d<-\n", ft_strncmp(strncmp_s5, strncmp_s6, strncmp_n3));
 	printf("expected:\t->%d<-\n", strncmp(strncmp_s5, strncmp_s6, strncmp_n3));
+
+	printf("\n### atoi tests ###\n");
+	char	atoi_str[] = "+420";
+	char	atoi_str2[] = "-420";
+	char	atoi_str3[] = "        781250";
+	char	atoi_str4[] = "        781V250";
+	printf("mine:\t\t->%d<-\n", ft_atoi(atoi_str));
+	printf("expected:\t->%d<-\n", atoi(atoi_str));
+	printf("mine:\t\t->%d<-\n", ft_atoi(atoi_str2));
+	printf("expected:\t->%d<-\n", atoi(atoi_str2));
+	printf("mine:\t\t->%d<-\n", ft_atoi(atoi_str3));
+	printf("expected:\t->%d<-\n", atoi(atoi_str3));
+	printf("mine:\t\t->%d<-\n", ft_atoi(atoi_str4));
+	printf("expected:\t->%d<-\n", atoi(atoi_str4));
+
+	printf("\n### isdigit tests ###\n");
+	printf("mine:\t\t->%d<-\n", ft_isdigit('5'));
+	printf("expected:\t->%d<-\n", isdigit('5'));
+	printf("mine:\t\t->%d<-\n", ft_isdigit('z'));
+	printf("expected:\t->%d<-\n", isdigit('z'));
+	printf("mine:\t\t->%d<-\n", ft_isdigit('#'));
+	printf("expected:\t->%d<-\n", isdigit('#'));
+	printf("mine:\t\t->%d<-\n", ft_isdigit(129));
+	printf("expected:\t->%d<-\n", isdigit(129));
+
+	printf("\n### isalpha tests ###\n");
+	printf("mine:\t\t->%d<-\n", ft_isalpha('5'));
+	printf("expected:\t->%d<-\n", isalpha('5'));
+	printf("mine:\t\t->%d<-\n", ft_isalpha('z'));
+	printf("expected:\t->%d<-\n", isalpha('z'));
+	printf("mine:\t\t->%d<-\n", ft_isalpha('#'));
+	printf("expected:\t->%d<-\n", isalpha('#'));
+	printf("mine:\t\t->%d<-\n", ft_isalpha(129));
+	printf("expected:\t->%d<-\n", isalpha(129));
+
+	printf("\n### isalnum tests ###\n");
+	printf("mine:\t\t->%d<-\n", ft_isalnum('5'));
+	printf("expected:\t->%d<-\n", isalnum('5'));
+	printf("mine:\t\t->%d<-\n", ft_isalnum('z'));
+	printf("expected:\t->%d<-\n", isalnum('z'));
+	printf("mine:\t\t->%d<-\n", ft_isalnum('#'));
+	printf("expected:\t->%d<-\n", isalnum('#'));
+	printf("mine:\t\t->%d<-\n", ft_isalnum(129));
+	printf("expected:\t->%d<-\n", isalnum(129));
+
+	printf("\n### isascii tests ###\n");
+	printf("mine:\t\t->%d<-\n", ft_isascii('5'));
+	printf("expected:\t->%d<-\n", isascii('5'));
+	printf("mine:\t\t->%d<-\n", ft_isascii('z'));
+	printf("expected:\t->%d<-\n", isascii('z'));
+	printf("mine:\t\t->%d<-\n", ft_isascii('#'));
+	printf("expected:\t->%d<-\n", isascii('#'));
+	printf("mine:\t\t->%d<-\n", ft_isascii(129));
+	printf("expected:\t->%d<-\n", isascii(129));
+
+	printf("\n### isprint tests ###\n");
+	printf("mine:\t\t->%d<-\n", ft_isprint('5'));
+	printf("expected:\t->%d<-\n", isprint('5'));
+	printf("mine:\t\t->%d<-\n", ft_isprint('z'));
+	printf("expected:\t->%d<-\n", isprint('z'));
+	printf("mine:\t\t->%d<-\n", ft_isprint(13));
+	printf("expected:\t->%d<-\n", isprint(13));
+	printf("mine:\t\t->%d<-\n", ft_isprint(129));
+	printf("expected:\t->%d<-\n", isprint(129));
+
+	printf("\n### toupper tests ###\n");
+	printf("mine:\t\t->%c<-\n", ft_toupper('a'));
+	printf("expected:\t->%c<-\n", toupper('a'));
+	printf("mine:\t\t->%c<-\n", ft_toupper('A'));
+	printf("expected:\t->%c<-\n", toupper('A'));
+	printf("mine:\t\t->%c<-\n", ft_toupper('#'));
+	printf("expected:\t->%c<-\n", toupper('#'));
+
+	printf("\n### tolower tests ###\n");
+	printf("mine:\t\t->%c<-\n", ft_tolower('a'));
+	printf("expected:\t->%c<-\n", tolower('a'));
+	printf("mine:\t\t->%c<-\n", ft_tolower('A'));
+	printf("expected:\t->%c<-\n", tolower('A'));
+	printf("mine:\t\t->%c<-\n", ft_tolower('#'));
+	printf("expected:\t->%c<-\n", tolower('#'));
 	return 0;
 }

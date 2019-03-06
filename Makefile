@@ -6,7 +6,7 @@
 #    By: Valentin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/03 16:01:26 by Valentin          #+#    #+#              #
-#    Updated: 2019/03/06 17:55:35 by Valentin         ###   ########.fr        #
+#    Updated: 2019/03/06 20:53:47 by Valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,15 @@ SRCS = ft_memset.c \
 		ft_strstr.c \
 		ft_strnstr.c \
 		ft_strcmp.c \
-		ft_strncmp.c
+		ft_strncmp.c \
+		ft_atoi.c \
+		ft_isdigit.c \
+		ft_isalpha.c \
+		ft_isalnum.c \
+		ft_isascii.c \
+		ft_isprint.c \
+		ft_toupper.c \
+		ft_tolower.c
 
 OBJ = $(SRCS:.c=.o)
 
