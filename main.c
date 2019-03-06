@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 18:45:21 by Valentin          #+#    #+#             */
-/*   Updated: 2019/03/06 14:04:52 by Valentin         ###   ########.fr       */
+/*   Updated: 2019/03/06 16:30:07 by Valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,58 @@ int		main(void)
 	size_t	strncpy_n = 7;
 	printf("mine:\t\t->%s<-\n", ft_strncpy(strncpy_dst1, strncpy_src, strncpy_n));
 	printf("expected:\t->%s<-\n", strncpy(strncpy_dst2, strncpy_src, strncpy_n));
+
+	printf("\n### strcat tests ###\n");
+	char	strcat_src[] = "bonjour les amis";
+	char	strcat_dst1[50] = "eh oui salut les potes";
+	char	strcat_dst2[50] = "eh oui salut les potes";
+	printf("mine:\t\t->%s<-\n", ft_strcat(strcat_dst1, strcat_src));
+	printf("expected:\t->%s<-\n", strcat(strcat_dst2, strcat_src));
+
+	printf("\n### strncat tests ###\n");
+	char	strncat_src[] = "bonjour les amis";
+	char	strncat_dst1[50] = "eh oui salut les potes";
+	char	strncat_dst2[50] = "eh oui salut les potes";
+	size_t	strncat_n = 11;
+	printf("mine:\t\t->%s<-\n", ft_strncat(strncat_dst1, strncat_src, strncat_n));
+	printf("expected:\t->%s<-\n", strncat(strncat_dst2, strncat_src, strncat_n));
+
+	printf("\n### strlcat tests ###\n");
+	char	strlcat_src[] = "bonjour les amis";
+	char	strlcat_dst1[50] = "eh oui salut les potes";
+	char	strlcat_dst2[50] = "eh oui salut les potes";
+	size_t	strlcat_n = 11;
+	printf("mine:\t\t->%zu<-\n", ft_strlcat(strlcat_dst1, strlcat_src, strlcat_n));
+	printf("mine:\t\t->%s<-\n", strlcat_dst1);
+	printf("expected:\t->%zu<-\n", strlcat(strlcat_dst2, strlcat_src, strlcat_n));
+	printf("expected:\t->%s<-\n", strlcat_dst2);
+
+	printf("\n### strchr tests ###\n");
+	char	strchr_s[] = "bonj*ur les *mis";
+	int		strchr_c = 42;
+	printf("mine:\t\t->%s<-\n", ft_strchr(strchr_s, strchr_c));
+	printf("expected:\t->%s<-\n", strchr(strchr_s, strchr_c));
+
+	printf("\n### strrchr tests ###\n");
+	char	strrchr_s[] = "bonj*ur les *mis";
+	int		strrchr_c = 42;
+	printf("mine:\t\t->%s<-\n", ft_strrchr(strrchr_s, strrchr_c));
+	printf("expected:\t->%s<-\n", strrchr(strrchr_s, strrchr_c));
+
+	printf("\n### strstr tests ###\n");
+	char	strstr_to_find[] = "les";
+	char	strstr_str[] = "eh oui salut llles potes";
+	printf("mine:\t\t->%s<-\n", ft_strstr(strstr_str, strstr_to_find));
+	printf("expected:\t->%s<-\n", strstr(strstr_str, strstr_to_find));
+
+	printf("\n### strnstr tests ###\n");
+	char	strnstr_to_find[] = "les";
+	char	strnstr_str[] = "eh oui salut llles potes";
+	size_t	strnstr_len = 17;
+	printf("mine:\t\t->%s<-\n", ft_strnstr(strnstr_str, strnstr_to_find, strnstr_len));
+	printf("mine:\t\t->%s<-\n", ft_strnstr(strnstr_str, strnstr_to_find, strnstr_len + 1));
+	printf("expected:\t->%s<-\n", strnstr(strnstr_str, strnstr_to_find, strnstr_len));
+	printf("expected:\t->%s<-\n", strnstr(strnstr_str, strnstr_to_find, strnstr_len + 1));
 
 	return 0;
 }
