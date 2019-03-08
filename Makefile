@@ -6,7 +6,7 @@
 #    By: Valentin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/03 16:01:26 by Valentin          #+#    #+#              #
-#    Updated: 2019/03/06 20:53:47 by Valentin         ###   ########.fr        #
+#    Updated: 2019/03/08 13:57:39 by Valentin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,21 +41,40 @@ SRCS = ft_memset.c \
 		ft_isascii.c \
 		ft_isprint.c \
 		ft_toupper.c \
-		ft_tolower.c
+		ft_tolower.c \
+		ft_memalloc.c \
+		ft_memdel.c \
+		ft_strnew.c \
+		ft_strdel.c \
+		ft_strclr.c \
+		ft_striter.c \
+		ft_striteri.c \
+		ft_strmap.c \
+		ft_strmapi.c \
+		ft_strequ.c \
+		ft_strnequ.c \
+		ft_strsub.c \
+		ft_strjoin.c \
+		ft_strtrim.c \
+		ft_strsplit.c
 
 OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAGS) -c $(SRCS)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@echo "Compile..."
+	@gcc $(FLAGS) -c $(SRCS)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@echo "Lib created."
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
+	@echo "Object files removed."
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "Executable removed."
 
 re: fclean all

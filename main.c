@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 18:45:21 by Valentin          #+#    #+#             */
-/*   Updated: 2019/03/06 21:00:10 by Valentin         ###   ########.fr       */
+/*   Updated: 2019/03/08 15:41:36 by Valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int		main(void)
 {
+	printf("### first part of the libft project ###\n\n");
 	printf("### memset tests ###\n");
 	char	memset_s1[] = "bonjour";
 	char	memset_s2[] = "bonjour";
@@ -264,5 +265,17 @@ int		main(void)
 	printf("expected:\t->%c<-\n", tolower('A'));
 	printf("mine:\t\t->%c<-\n", ft_tolower('#'));
 	printf("expected:\t->%c<-\n", tolower('#'));
+
+
+	printf("\n\n### second part of the libft project ###\n");
+	printf("\n### strtrim tests ###\n");
+	char	strtrim_s[] = "        bonjour   les amis \n    \t";
+	printf("mine:\t\t->%s<-\n", ft_strtrim(strtrim_s));
+	printf("expected:\t->bonjour   les amis<-\n");
+
+	printf("\n### strsplit tests ###\n");
+	char	strsplit_s[] = "   bonjour       les  amis  d  lalala 1 2 3 soleil ";
+	char	strsplit_c = ' ';
+	ft_strsplit(strsplit_s, strsplit_c);
 	return 0;
 }
