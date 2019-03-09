@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 18:45:21 by Valentin          #+#    #+#             */
-/*   Updated: 2019/03/08 15:41:36 by Valentin         ###   ########.fr       */
+/*   Updated: 2019/03/09 02:10:00 by Valentin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -277,5 +277,27 @@ int		main(void)
 	char	strsplit_s[] = "   bonjour       les  amis  d  lalala 1 2 3 soleil ";
 	char	strsplit_c = ' ';
 	ft_strsplit(strsplit_s, strsplit_c);
+
+	printf("\n### itoa tests ###\n");
+	int		itoa_n1 = 42;
+	int		itoa_n2 = -42;
+	int		itoa_n3 = -2147483648;
+	int		itoa_n4 = +2147483647;
+	int		itoa_n5 = 0;
+	printf("mine:\t\t->%s<-\n", ft_itoa(itoa_n1));
+	printf("expected:\t->%d<-\n\n", itoa_n1);
+	
+	printf("mine:\t\t->%s<-\n", ft_itoa(itoa_n2));
+	printf("expected:\t->%d<-\n\n", itoa_n2);
+	
+	printf("mine:\t\t->%s<-\n", ft_itoa(itoa_n3));
+	printf("expected:\t->%d<-\n\n", itoa_n3);
+	
+	printf("mine:\t\t->%s<-\n", ft_itoa(itoa_n4));
+	printf("expected:\t->%d<-\n\n", itoa_n4);
+
+	printf("mine:\t\t->%s<-\n", ft_itoa(itoa_n5));
+	printf("expected:\t->%d<-\n", itoa_n5);
+
 	return 0;
 }
