@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 13:41:51 by Valentin          #+#    #+#             */
-/*   Updated: 2019/03/08 15:45:18 by Valentin         ###   ########.fr       */
+/*   Updated: 2019/04/02 19:26:22 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,8 @@ char	**ft_strsplit(char const *s, char c)
 	int		i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	if ((words = ft_count_words(s, c)) == 0)
 		return (NULL);
 	if (!(tab = (char**)malloc(sizeof(char*) * words)) || \
@@ -132,5 +134,6 @@ char	**ft_strsplit(char const *s, char c)
 		i++;
 	}
 	free(len);
+	tab[i] = NULL;
 	return (tab);
 }

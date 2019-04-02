@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 15:56:12 by Valentin          #+#    #+#             */
-/*   Updated: 2019/03/09 02:19:24 by Valentin         ###   ########.fr       */
+/*   Updated: 2019/04/02 18:27:24 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ char	*ft_itoa(int n)
 
 	i = 0;
 	nb = n;
-	ret = (char*)malloc(sizeof(char) * 12);
+	if (!(ret = (char*)malloc(sizeof(char) * 12)))
+		return (NULL);
 	ft_itoa_fill(ret, nb, &i);
 	return (ret);
 }

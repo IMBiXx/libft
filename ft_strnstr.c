@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 16:07:55 by Valentin          #+#    #+#             */
-/*   Updated: 2019/03/06 16:33:18 by Valentin         ###   ########.fr       */
+/*   Updated: 2019/04/02 15:45:04 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	int				i;
 	char			*ptr;
 
-	if (haystack == 0 || needle == 0)
-		return (0);
 	ptr = (char*)haystack;
 	j = 0;
 	i = 0;
