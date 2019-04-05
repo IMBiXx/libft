@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: valecart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 12:42:49 by valecart          #+#    #+#             */
-/*   Updated: 2019/04/03 12:43:07 by valecart         ###   ########.fr       */
+/*   Created: 2019/04/05 14:08:36 by valecart          #+#    #+#             */
+/*   Updated: 2019/04/05 15:31:27 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	unsigned int	i;
+	t_list		*li;
+	t_list		*nxt;
 
-	i = -1;
-	while (++i < n)
-		((unsigned char*)dst)[i] = ((unsigned char*)src)[i];
-	return (dst);
+	li = *alst;
+	while (li)
+	{
+		nxt = li->next;
+		del(li->content, li->content_size);
+		free(li);
+		li = nxt;
+	}
+	*alst = NULL;
 }

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstprint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: valecart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 12:42:49 by valecart          #+#    #+#             */
-/*   Updated: 2019/04/03 12:43:07 by valecart         ###   ########.fr       */
+/*   Created: 2019/04/05 11:57:54 by valecart          #+#    #+#             */
+/*   Updated: 2019/04/05 12:36:33 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_lstprint(t_list *li)
 {
-	unsigned int	i;
-
-	i = -1;
-	while (++i < n)
-		((unsigned char*)dst)[i] = ((unsigned char*)src)[i];
-	return (dst);
+	if (!li)
+	{
+		ft_putstr("liste vide\n");
+		return ;
+	}
+	while (li)
+	{
+		ft_putendl(li->content);
+		li = li->next;
+	}
 }

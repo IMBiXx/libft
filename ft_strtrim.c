@@ -6,19 +6,46 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 16:56:41 by Valentin          #+#    #+#             */
-/*   Updated: 2019/04/02 18:43:35 by valecart         ###   ########.fr       */
+/*   Updated: 2019/04/05 12:36:02 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+static char		*parsing_trim(const char *s, char *new, int size)
+{
+	size_t		i;
+
+	i = 0;
+	if (size > 0)
+	{
+		if (!(new = ft_memalloc(size + 1)))
+			return (NULL);
+	}
+	else
+	{
+		while ((s[i] == ' ' || s[i] == '\t' || s[i] == '\n') && s[i])
+			i++;
+		if (i == ft_strlen(s))
+		{
+			if (!(new = ft_memalloc(1)))
+				return (NULL);
+			new[0] = '\0';
+			return (new);
+		}
+	}
+	i = 0;
+	return (new);
+}
+
+char			*ft_strtrim(char const *s)
 {
 	char	*new;
 	int		min;
 	int		max;
-	int		i;
+	size_t	i;
 
+	new = NULL;
 	if (!s)
 		return (NULL);
 	i = 0;
@@ -28,16 +55,8 @@ char	*ft_strtrim(char const *s)
 		min++;
 	while ((s[max] == ' ' || s[max] == '\t' || s[max] == '\n') && max > min)
 		max--;
-	if (max - min > 0)
-	{
-		if (!(new = ft_memalloc(max - min + 1)))
-			return (NULL);
-	}
-	else // error there, i have to deal without max-min and try with full read the string while there is no \t \n ' '
-	{
-		if (!(new = ft_memalloc(1)))
-			return (NULL);
-	}
+	if (!(new = parsing_trim(s, new, max - min + 1)))
+		return (NULL);
 	while (min <= max)
 	{
 		new[i] = s[min];
@@ -46,11 +65,4 @@ char	*ft_strtrim(char const *s)
 	}
 	new[i] = '\0';
 	return (new);
-}
-
-int		main(void)
-{
-	char	s1[] = "  \t \t \n   \n\n\n\t";
-	printf("%s\n", ft_strtrim(s1));
-	return 0;
 }

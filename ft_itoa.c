@@ -6,13 +6,13 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 15:56:12 by Valentin          #+#    #+#             */
-/*   Updated: 2019/04/02 18:27:24 by valecart         ###   ########.fr       */
+/*   Updated: 2019/04/04 13:26:24 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_itoa_fill(char *ret, long int n, int *i)
+static void		ft_itoa_fill(char *ret, long int n, int *i)
 {
 	if (n < 0)
 	{
@@ -34,9 +34,10 @@ void	ft_itoa_fill(char *ret, long int n, int *i)
 	ret[*i] = '\0';
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char		*ret;
+	char		*final;
 	long int	nb;
 	int			i;
 
@@ -45,5 +46,8 @@ char	*ft_itoa(int n)
 	if (!(ret = (char*)malloc(sizeof(char) * 12)))
 		return (NULL);
 	ft_itoa_fill(ret, nb, &i);
-	return (ret);
+	if (!(final = (char*)malloc(sizeof(char) * ft_strlen(ret) + 1)))
+		return (NULL);
+	ft_strcpy(final, ret);
+	return (final);
 }

@@ -3,137 +3,77 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: valecart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/08 13:41:51 by Valentin          #+#    #+#             */
-/*   Updated: 2019/04/02 19:26:22 by valecart         ###   ########.fr       */
+/*   Created: 2019/04/03 11:13:56 by valecart          #+#    #+#             */
+/*   Updated: 2019/04/04 13:23:50 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_count_words(char const *s, char c)
+static int		count_str(char const *s, char c)
 {
-	int		i;
-	int		words;
+	int			i;
+	int			words;
 
 	i = 0;
-	words = 1;
-	while (s[i] == c)
-		i++;
-	if (!s[i])
-		words = 0;
-	while (s[i])
+	words = 0;
+	while (s[i] != '\0')
 	{
-		if (s[i] == c)
-		{
+		if (s[i] != c && (s[i - 1] == c || i == 0))
 			words++;
-			while (s[i] == c)
-				i++;
-			if (!s[i])
-				words--;
-		}
 		i++;
 	}
 	return (words);
 }
 
-int		*ft_len_words(char const *s, char c, int *len)
+static char		*write_str(char const *s, char c, int *current, char *str)
 {
-	int		i;
-	int		tmp;
-	int		current;
+	int			i;
+	int			wlen;
 
+	wlen = 0;
+	while (s[(*current)] == c && s[(*current)])
+		(*current)++;
+	while (s[wlen + *current] != c && s[*current + wlen])
+		wlen++;
+	str = ft_strnew(wlen + 1);
+	if (!str)
+		return (0);
 	i = 0;
-	current = 0;
-	while (s[i] == c)
-		i++;
-	tmp = i;
-	while (s[i])
+	while (s[(*current)] != c && s[(*current)])
 	{
-		if (s[i] == c)
-		{
-			len[current] = i - tmp;
-			current++;
-			while (s[i] == c)
-				i++;
-			if (!s[i])
-			{
-				len[current] = i - tmp;
-				return (len);
-			}
-			tmp = i;
-		}
+		str[i] = s[(*current)];
+		(*current)++;
 		i++;
 	}
-	if (s[i - 1] != c)
-		len[current] = i - tmp;
-	return (len);
+	str[i] = 0;
+	return (str);
 }
 
-char	*ft_fill_tab(char const *s, char c, char *tab, int current_word)
+char			**ft_strsplit(char const *s, char c)
 {
-	int		i;
-	int		j;
-	int		words;
+	char		**tab;
+	int			i;
+	int			j;
+	int			words;
 
 	i = 0;
 	j = 0;
-	words = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i])
+	tab = 0;
+	if (s)
 	{
-		if (words == current_word)
-		{
-			if (words > 0)
-				i--;
-			while (s[i] != c)
-			{
-				tab[j] = s[i];
-				j++;
-				i++;
-			}
-			tab[j] = '\0';
-			return (tab);
-		}
-		if (s[i] == c)
-		{
-			words++;
-			while (s[i] == c)
-				i++;
-			if (!s[i])
-				words--;
-		}
-		i++;
+		words = count_str(s, c);
+		tab = (char**)malloc(sizeof(char*) * (words + 1));
 	}
-	return (tab);
-}
-
-char	**ft_strsplit(char const *s, char c)
-{
-	char	**tab;
-	int		*len;
-	int		words;
-	int		i;
-
-	i = 0;
-	if (!s)
-		return (NULL);
-	if ((words = ft_count_words(s, c)) == 0)
-		return (NULL);
-	if (!(tab = (char**)malloc(sizeof(char*) * words)) || \
-			!(len = (int*)malloc(sizeof(int) * words)))
-		return (NULL);
-	len = ft_len_words(s, c, len);
+	if (!tab)
+		return (0);
 	while (i < words)
 	{
-		if (!(tab[i] = (char*)malloc(sizeof(char) * len[i] + 1)))
-			return (NULL);
-		tab[i] = ft_fill_tab(s, c, tab[i], i);
+		tab[i] = write_str(s, c, &j, tab[i]);
 		i++;
 	}
-	free(len);
-	tab[i] = NULL;
+	tab[i] = 0;
 	return (tab);
 }

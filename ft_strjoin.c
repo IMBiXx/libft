@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/07 16:47:12 by Valentin          #+#    #+#             */
-/*   Updated: 2019/04/02 18:31:31 by valecart         ###   ########.fr       */
+/*   Updated: 2019/04/03 12:41:44 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		new[i] = s1[i];
 		i++;
 	}
-	while(s2[j])
+	while (s2[j])
 	{
 		new[i] = s2[j];
 		i++;
