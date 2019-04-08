@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstprint.c                                      :+:      :+:    :+:   */
+/*   ft_search_and_replace.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: valecart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 11:57:54 by valecart          #+#    #+#             */
-/*   Updated: 2019/04/08 11:24:08 by valecart         ###   ########.fr       */
+/*   Created: 2019/04/08 11:21:25 by valecart          #+#    #+#             */
+/*   Updated: 2019/04/08 11:21:27 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstprint(t_list *li)
+char	*ft_search_and_replace(char *str, char a, char b)
 {
-	if (!li)
+	int		i;
+
+	i = 0;
+	if (!str || !a || !b)
+		return (NULL);
+	while (str[i])
 	{
-		ft_putendl("liste vide");
+		if (str[i] == a)
+			str[i] = b;
+		i++;
 	}
-	else
-	{
-		while (li)
-		{
-			ft_putendl(li->content);
-			li = li->next;
-		}
-	}
+	return (str);
 }

@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstprint.c                                      :+:      :+:    :+:   */
+/*   ft_sort_integer_table.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: valecart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 11:57:54 by valecart          #+#    #+#             */
-/*   Updated: 2019/04/08 11:24:08 by valecart         ###   ########.fr       */
+/*   Created: 2019/02/08 13:13:21 by valecart          #+#    #+#             */
+/*   Updated: 2019/04/08 10:47:33 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstprint(t_list *li)
+void	ft_sort_integer_table(int *tab, int size)
 {
-	if (!li)
+	int		i;
+	int		j;
+	int		tmp;
+
+	i = 0;
+	j = 0;
+	tmp = 0;
+	i = size - 1;
+	while (j < size)
 	{
-		ft_putendl("liste vide");
-	}
-	else
-	{
-		while (li)
+		while (i > j)
 		{
-			ft_putendl(li->content);
-			li = li->next;
+			if (tab[i] < tab[i - 1])
+			{
+				tmp = tab[i];
+				tab[i] = tab[i - 1];
+				tab[i - 1] = tmp;
+				i = size - 1;
+			}
+			else
+				i--;
 		}
+		j++;
 	}
 }

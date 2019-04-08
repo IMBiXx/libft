@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstprint.c                                      :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: valecart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 11:57:54 by valecart          #+#    #+#             */
-/*   Updated: 2019/04/08 11:24:08 by valecart         ###   ########.fr       */
+/*   Created: 2019/02/07 20:20:49 by valecart          #+#    #+#             */
+/*   Updated: 2019/04/08 10:33:36 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstprint(t_list *li)
+char	*ft_strrev(char *str)
 {
-	if (!li)
+	char	tmp;
+	int		max;
+	int		i;
+
+	max = 0;
+	i = 0;
+	while (str[max])
+		max++;
+	max--;
+	while (i < max)
 	{
-		ft_putendl("liste vide");
+		tmp = str[max];
+		str[max] = str[i];
+		str[i] = tmp;
+		max--;
+		i++;
 	}
-	else
-	{
-		while (li)
-		{
-			ft_putendl(li->content);
-			li = li->next;
-		}
-	}
+	return (str);
 }

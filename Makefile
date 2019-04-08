@@ -6,7 +6,7 @@
 #    By: Valentin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/03 16:01:26 by Valentin          #+#    #+#              #
-#    Updated: 2019/04/05 15:38:55 by valecart         ###   ########.fr        #
+#    Updated: 2019/04/08 11:27:31 by valecart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,15 @@ SRCS = ft_memset.c \
 		ft_lstdel.c \
 		ft_lstadd.c \
 		ft_lstiter.c \
-		ft_lstmap.c
+		ft_lstmap.c \
+		ft_lstprint.c \
+		ft_strrev.c \
+		ft_error.c \
+		ft_realloc.c \
+		ft_sort_integer_table.c \
+		ft_putnbr_base.c \
+		ft_split_whitespaces.c \
+		ft_search_and_replace.c
 
 
 OBJ = $(SRCS:.c=.o)

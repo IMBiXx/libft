@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 16:26:24 by Valentin          #+#    #+#             */
-/*   Updated: 2019/04/05 15:39:24 by valecart         ###   ########.fr       */
+/*   Updated: 2019/04/08 11:26:26 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,13 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void				ft_lstprint(t_list *li);
+char				*ft_strrev(char *str);
+void				ft_error(char const *str);
+char				*ft_realloc(char *str, int size);
+void				ft_sort_integer_table(int *tab, int size);
+void				ft_putnbr_base(int nbr, char *base);
+char				**ft_split_whitespaces(char *str);
+char				*ft_search_and_replace(char *str, char a, char b);
 
 #endif
