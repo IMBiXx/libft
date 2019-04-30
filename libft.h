@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 16:26:24 by Valentin          #+#    #+#             */
-/*   Updated: 2019/04/30 11:56:32 by valecart         ###   ########.fr       */
+/*   Updated: 2019/04/30 17:27:36 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,9 @@ void				ft_sort_integer_table(int *tab, int size);
 void				ft_putnbr_base(int nbr, char *base);
 char				**ft_split_whitespaces(char *str);
 char				*ft_search_and_replace(char *str, char a, char b);
-t_data				*sort_data(t_data *lst, int (*cmp)(int, int));
+t_list				*sort_data(t_list *lst, int (*cmp)(int, int));
 void				ft_putnstr(const char *str, size_t len);
 size_t				ft_putuntil(char *str, char c);
+void				ft_putnchar(char c, int n);
 
 #endif
