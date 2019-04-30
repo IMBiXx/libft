@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 16:26:24 by Valentin          #+#    #+#             */
-/*   Updated: 2019/04/30 11:48:31 by valecart         ###   ########.fr       */
+/*   Updated: 2019/04/30 11:56:32 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,9 @@ typedef struct		s_list
 {
 	void			*content;
 	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
-
-typedef struct		s_data
-{
 	int				data;
 	struct s_list	*next;
-}					t_data;
+}					t_list;
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -98,5 +93,6 @@ char				**ft_split_whitespaces(char *str);
 char				*ft_search_and_replace(char *str, char a, char b);
 t_data				*sort_data(t_data *lst, int (*cmp)(int, int));
 void				ft_putnstr(const char *str, size_t len);
+size_t				ft_putuntil(char *str, char c);
 
 #endif
