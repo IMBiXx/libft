@@ -6,7 +6,7 @@
 #    By: Valentin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/03 16:01:26 by Valentin          #+#    #+#              #
-#    Updated: 2019/04/30 11:48:42 by valecart         ###   ########.fr        #
+#    Updated: 2019/04/30 11:57:10 by valecart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,8 @@ SRCS = ft_memset.c \
 		ft_split_whitespaces.c \
 		ft_search_and_replace.c \
 		ft_lstsort.c \
-		ft_putnstr.c
+		ft_putnstr.c \
+		ft_putuntil.c
 
 
 OBJ = $(SRCS:.c=.o)
