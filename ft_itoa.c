@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 15:56:12 by Valentin          #+#    #+#             */
-/*   Updated: 2019/04/04 13:26:24 by valecart         ###   ########.fr       */
+/*   Updated: 2019/04/25 16:58:03 by tpotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,31 @@ static void		ft_itoa_fill(char *ret, long int n, int *i)
 	ret[*i] = '\0';
 }
 
+static int		ft_intcount(int n)
+{
+	int		i;
+
+	i = 1;
+	if (n < 0)
+	{
+		n = -1;
+		i++;
+	}
+	while ((n = n / 10) > 0)
+		i++;
+	return (i);
+}
+
 char			*ft_itoa(int n)
 {
 	char		*ret;
-	char		*final;
 	long int	nb;
 	int			i;
 
 	i = 0;
 	nb = n;
-	if (!(ret = (char*)malloc(sizeof(char) * 12)))
+	if (!(ret = (char*)malloc(sizeof(char) * (ft_intcount(n) + 1))))
 		return (NULL);
 	ft_itoa_fill(ret, nb, &i);
-	if (!(final = (char*)malloc(sizeof(char) * ft_strlen(ret) + 1)))
-		return (NULL);
-	ft_strcpy(final, ret);
-	return (final);
+	return (ret);
 }
