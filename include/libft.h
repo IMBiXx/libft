@@ -6,7 +6,7 @@
 /*   By: Valentin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/03 16:26:24 by Valentin          #+#    #+#             */
-/*   Updated: 2019/04/30 17:27:36 by valecart         ###   ########.fr       */
+/*   Updated: 2019/05/21 15:21:56 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@ typedef struct		s_list
 	int				data;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_stack
+{
+	int				*stack;
+	size_t			sp;
+	int				med;
+	size_t			size;
+}					t_stack;
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -85,7 +93,7 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstprint(t_list *li);
 char				*ft_strrev(char *str);
-void				ft_error(char const *str);
+int					ft_error(char const *str);
 char				*ft_realloc(char *str, int size);
 void				ft_sort_integer_table(int *tab, int size);
 void				ft_putnbr_base(int nbr, char *base);
@@ -95,5 +103,11 @@ t_list				*sort_data(t_list *lst, int (*cmp)(int, int));
 void				ft_putnstr(const char *str, size_t len);
 size_t				ft_putuntil(char *str, char c);
 void				ft_putnchar(char c, int n);
+size_t				ft_num_len_base(long long n, int base);
+size_t				ft_num_len_base_u(unsigned long long n, int base);
+long				ft_atoi_len(const char *str, size_t *i);
+int					ft_stack_push(t_stack *stack, int n);
+int					ft_stack_pop(t_stack *stack);
+void				ft_swap(void *a, void *b, size_t s);
 
 #endif

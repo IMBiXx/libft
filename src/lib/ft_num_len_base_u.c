@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_num_len_base_u.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: valecart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/08 10:48:39 by valecart          #+#    #+#             */
-/*   Updated: 2019/04/08 10:50:05 by valecart         ###   ########.fr       */
+/*   Created: 2019/04/30 19:54:41 by valecart          #+#    #+#             */
+/*   Updated: 2019/04/30 19:54:50 by valecart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_error(char const *str)
+size_t		ft_num_len_base_u(unsigned long long n, int base)
 {
-	ft_putstr_fd(str, 2);
+	size_t	s;
+
+	s = 1;
+	while (n /= base)
+		s++;
+	return (s);
 }
